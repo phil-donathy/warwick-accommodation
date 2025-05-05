@@ -1,197 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Warwick Accommodation Table (Sortable)</title>
+<title>Projects by Your Name</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- DataTables CSS -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
 <style>
-  :root {
-    --bg: #ffffff;
-    --fg: #1a1a1a;
-    --accent: #005eb8;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #121212;
-      --fg: #e0e0e0;
-      --accent: #4dabf7;
-    }
-  }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    margin: 2rem;
-  }
-  h1 {
-    text-align:center;
-    margin-bottom: 1.5rem;
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
-  }
-  a {
-    color: var(--accent);
-  }
-  table.dataTable thead th {
-    background: var(--bg);
-    color: var(--fg);
-    border-bottom:2px solid var(--accent);
-  }
-  table.dataTable tbody tr:nth-child(even) {
-    background:#f6f8fa;
-  }
-  @media (prefers-color-scheme: dark) {
-    table.dataTable tbody tr:nth-child(even) {
-      background:#1e1e1e;
-    }
-  }
-  table.dataTable {
-    width:100%;
-    border-collapse: collapse;
-    border:1px solid #ccc;
-    box-shadow: 0 2px 6px rgba(0,0,0,.1);
-  }
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+       margin:3rem;line-height:1.6;background:#fff;color:#222}
+  h1{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:1.2rem}
+  ul{list-style:none;padding:0}
+  li{margin:.7rem 0}
+  a{color:#005eb8;text-decoration:none;font-weight:600}
+  a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<h1>University of Warwick – Undergraduate Residences 2025/26</h1>
-<table id="accomTable" class="display">
-<thead>
-<tr>
-<th>Residence</th>
-<th>Rooms</th>
-<th>£ / week</th>
-<th>Bathroom</th>
-<th>Let length</th>
-<th>Preferred</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/cryfield-townhouses-12-bed" target="_blank" rel="noopener">Cryfield Townhouses</a></td>
-<td data-order="456">456</td>
-<td>£230</td>
-<td>En suite</td>
-<td>42 wks</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/arthur-vick/" target="_blank" rel="noopener">Arthur Vick</a></td>
-<td data-order="396">396</td>
-<td>£246</td>
-<td>En suite</td>
-<td>40 wks</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/sherbourne/" target="_blank" rel="noopener">Sherbourne</a></td>
-<td data-order="794">794</td>
-<td>£207</td>
-<td>En suite</td>
-<td>40 wks</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/heronbank/" target="_blank" rel="noopener">Heronbank</a></td>
-<td data-order="701">701</td>
-<td>£199</td>
-<td>En suite</td>
-<td>40 wks</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/claycroft" target="_blank" rel="noopener">Claycroft</a></td>
-<td data-order="679">679</td>
-<td>£170</td>
-<td>Shared (2‑share)</td>
-<td>40 wks</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/cryfield-standard" target="_blank" rel="noopener">Cryfield Standard</a></td>
-<td data-order="253">253</td>
-<td>£134</td>
-<td>Shared</td>
-<td>40 wks</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/rootes" target="_blank" rel="noopener">Rootes</a></td>
-<td data-order="927">927</td>
-<td>£123–125</td>
-<td>Shared</td>
-<td>40 wks</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/bluebell/" target="_blank" rel="noopener">Bluebell</a></td>
-<td data-order="505">505</td>
-<td>£250</td>
-<td>En suite</td>
-<td>40 wks</td>
-<td>No</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/cryfield-apartments" target="_blank" rel="noopener">Cryfield Apartments</a></td>
-<td data-order="142">142</td>
-<td>£235</td>
-<td>En suite</td>
-<td>42 wks</td>
-<td>No</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/jack-martin/" target="_blank" rel="noopener">Jack Martin</a></td>
-<td data-order="425">425</td>
-<td>£216</td>
-<td>En suite</td>
-<td>35 wks</td>
-<td>No</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/lakeside" target="_blank" rel="noopener">Lakeside</a></td>
-<td data-order="596">596</td>
-<td>£214</td>
-<td>En suite</td>
-<td>42 wks</td>
-<td>No</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/residences/tocil" target="_blank" rel="noopener">Tocil</a></td>
-<td data-order="574">574</td>
-<td>£131</td>
-<td>Shared</td>
-<td>44 wks</td>
-<td>No</td>
-</tr>
-<tr>
-<td><a href="https://warwick.ac.uk/services/accommodation/students/westwoodensuite-2023" target="_blank" rel="noopener">Westwood En Suite</a></td>
-<td data-order="120">120</td>
-<td>£200</td>
-<td>En suite</td>
-<td>40 wks</td>
-<td>No</td>
-</tr>
-
-</tbody>
-</table>
-
-<!-- jQuery + DataTables -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
-<script>
-$(document).ready(function() {
-    $('#accomTable').DataTable({
-        paging: false,
-        info: false,
-        stripeClasses: ['dt-row-even','dt-row-odd'],
-        columnDefs: [
-          { targets: [1], type: 'num' },
-          { targets: [2], type: 'html' }
-        ]
-    });
-});
-</script>
+  <h1>Projects</h1>
+  <ul>
+    <li><a href="warwick-accommodation.html">Warwick Accommodation</a></li>
+    <!-- Add more projects here -->
+  </ul>
 </body>
 </html>
